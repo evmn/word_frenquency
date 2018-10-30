@@ -28,3 +28,7 @@ sed -i -e '/^[ \t-]*$/d' $1
 
 cat $1 |  sort | uniq -c | sort -rn >> FiE_wf.log
 
+
+# Get the longest words
+
+cat FiE_wf.log |  awk '{ print length, $0 }' | sort -n -r -s | cut -d" " -f2- >> longest_word.log
